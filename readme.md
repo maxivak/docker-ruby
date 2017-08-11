@@ -49,6 +49,7 @@ docker run --name my-ruby -d \
 ```
 docker exec -ti my-ruby bash
 
+# in container
 ruby-install ruby 2.3.3
 
 source /usr/local/share/chruby/chruby.sh
@@ -57,5 +58,35 @@ chruby ruby-2.3.3
 
 # install gems
 gem install bundler bundle
+
+```
+
+* destroy container
+```
+docker rm -f my-ruby
+```
+
+* run container with the same volume with ruby binaries
+```
+docker run --name my-ruby -d \
+    -v v-my-rubies:/opt/rubies my-ruby /sbin/my_init
+```
+
+* enter container and check that ruby exists
+```
+docker exec -ti my-ruby bash
+
+# in container
+root@d73892e0740e:/# chruby
+  ruby-2.3.3
+
+
+# use ruby
+chruby ruby-2.3.3
+
+root@d73892e0740e:/# ruby -v
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+
+
 
 ```
