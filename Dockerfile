@@ -36,3 +36,15 @@ RUN echo "source /usr/local/share/chruby/chruby.sh" >> /root/.bashrc
 #
 RUN echo "gem: --no-document" >> /root/.gemrc
 
+
+# mysql
+RUN apt-get -y install mysql-client libmysqlclient-dev
+
+#RUN gem install mysql2
+
+
+# nodejs
+RUN apt-get -y install python-software-properties
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get -y install nodejs
+
