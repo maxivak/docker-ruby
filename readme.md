@@ -7,6 +7,9 @@ Base image for rubies.
 Contents
 * ruby-install
 * chruby
+* mysql client
+* nodejs
+
 
 
 
